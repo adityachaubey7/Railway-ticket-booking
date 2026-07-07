@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment - RailEase</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">Rail<span>Ease</span></div>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="search.html">Search Trains</a>
+        <a href="mybookings.html">My Bookings</a>
+        <span id="authSlot"></span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container section">
+    <h2 class="section-title">Payment</h2>
+    <div class="card">
+      <div id="paymentSummary"></div>
+
+      <h3 class="mt-20">Choose Payment Method</h3>
+      <div class="payment-options">
+        <div class="pay-card active" data-method="UPI">UPI</div>
+        <div class="pay-card" data-method="Card">Card</div>
+        <div class="pay-card" data-method="Net Banking">Net Banking</div>
+      </div>
+
+      <form id="paymentForm">
+        <div class="form-group">
+          <label>Enter UPI / Card / Bank Ref</label>
+          <input type="text" id="paymentRef" placeholder="example@upi / card ref" required />
+        </div>
+        <div class="mt-20">
+          <button class="btn">Pay & Confirm Booking</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer"><div class="container"><p>© <span id="year"></span> RailEase</p></div></footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/trains.js"></script>
+  <script src="js/payment.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

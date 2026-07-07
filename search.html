@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search Trains - RailEase</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">Rail<span>Ease</span></div>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="search.html">Search Trains</a>
+        <a href="mybookings.html">My Bookings</a>
+        <span id="authSlot"></span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="search-header">
+      <h2 class="section-title">Available Trains</h2>
+      <div id="searchSummary" class="text-center"></div>
+    </div>
+
+    <div class="card">
+      <form id="searchForm" class="form-grid">
+        <div class="form-group">
+          <label>From</label>
+          <input type="text" id="from" required />
+        </div>
+        <div class="form-group">
+          <label>To</label>
+          <input type="text" id="to" required />
+        </div>
+        <div class="form-group">
+          <label>Date</label>
+          <input type="date" id="date" required />
+        </div>
+        <div class="form-group">
+          <label>Class</label>
+          <select id="travelClass" required>
+            <option value="Sleeper">Sleeper</option>
+            <option value="3AC">3AC</option>
+            <option value="2AC">2AC</option>
+            <option value="Chair Car">Chair Car</option>
+            <option value="Executive">Executive</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Passengers</label>
+          <input type="number" id="passengers" min="1" max="6" required />
+        </div>
+      </form>
+      <div class="text-center mt-20">
+        <button class="btn" id="searchBtn">Search Again</button>
+      </div>
+    </div>
+
+    <div id="trainResults"></div>
+  </div>
+
+  <footer class="footer"><div class="container"><p>© <span id="year"></span> RailEase</p></div></footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/trains.js"></script>
+  <script src="js/search.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

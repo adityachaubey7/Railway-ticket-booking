@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RailEase - Railway Ticket Booking</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">Rail<span>Ease</span></div>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="search.html">Search Trains</a>
+        <a href="mybookings.html">My Bookings</a>
+        <span id="authSlot"></span>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>Book Train Tickets Easily</h1>
+      <p>Search trains, choose your seat, make payment and download your ticket instantly.</p>
+      <a href="search.html" class="btn">Book Tickets Now</a>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="search-form">
+      <form id="homeSearchForm" class="form-grid">
+        <div class="form-group">
+          <label>From</label>
+          <input type="text" id="from" placeholder="Delhi" required />
+        </div>
+        <div class="form-group">
+          <label>To</label>
+          <input type="text" id="to" placeholder="Mumbai" required />
+        </div>
+        <div class="form-group">
+          <label>Date</label>
+          <input type="date" id="date" required />
+        </div>
+        <div class="form-group">
+          <label>Class</label>
+          <select id="travelClass" required>
+            <option value="">Select</option>
+            <option value="Sleeper">Sleeper</option>
+            <option value="3AC">3AC</option>
+            <option value="2AC">2AC</option>
+            <option value="Chair Car">Chair Car</option>
+            <option value="Executive">Executive</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Passengers</label>
+          <input type="number" id="passengers" min="1" max="6" value="1" required />
+        </div>
+      </form>
+      <div class="text-center mt-20">
+        <button class="btn" onclick="goToSearch()">Search Trains</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Popular Routes</h2>
+      <div class="route-grid">
+        <div class="route-card"><h3>Delhi → Mumbai</h3><p>Rajdhani, Duronto, Garib Rath</p></div>
+        <div class="route-card"><h3>Delhi → Lucknow</h3><p>Shatabdi, Intercity Express</p></div>
+        <div class="route-card"><h3>Kolkata → Patna</h3><p>Jan Shatabdi, Superfast</p></div>
+        <div class="route-card"><h3>Chennai → Bengaluru</h3><p>Double Decker, Express</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Why Choose RailEase?</h2>
+      <div class="features-grid">
+        <div class="feature-card"><h3>Fast Search</h3><p>Search available trains between cities instantly with smart filtering.</p></div>
+        <div class="feature-card"><h3>Interactive Seat Selection</h3><p>Pick your seat from a live coach layout before you pay.</p></div>
+        <div class="feature-card"><h3>Manage Tickets</h3><p>View ticket details and cancel bookings anytime from My Bookings.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer"><div class="container"><p>© <span id="year"></span> RailEase - Railway Ticket Booking Demo</p></div></footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function goToSearch() {
+      const from = document.getElementById("from").value.trim();
+      const to = document.getElementById("to").value.trim();
+      const date = document.getElementById("date").value;
+      const travelClass = document.getElementById("travelClass").value;
+      const passengers = document.getElementById("passengers").value;
+      if (!from || !to || !date || !travelClass || !passengers) {
+        toast("Please fill all search details.", "error");
+        return;
+      }
+      localStorage.setItem("searchData", JSON.stringify({ from, to, date, travelClass, passengers }));
+      window.location.href = "search.html";
+    }
+  </script>
+</body>
+</html>

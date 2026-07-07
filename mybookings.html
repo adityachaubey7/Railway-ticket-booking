@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Bookings - RailEase</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">Rail<span>Ease</span></div>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="search.html">Search Trains</a>
+        <a href="mybookings.html">My Bookings</a>
+        <span id="authSlot"></span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container section">
+    <h2 class="section-title">My Bookings</h2>
+    <div id="bookingList" class="booking-list"></div>
+  </div>
+
+  <footer class="footer"><div class="container"><p>© <span id="year"></span> RailEase</p></div></footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/mybookings.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
